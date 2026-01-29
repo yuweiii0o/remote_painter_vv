@@ -28,7 +28,6 @@ let bSlider;
 
 let colorSwatch;
 
-
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch-container"); 
@@ -47,7 +46,7 @@ function setup() {
   //call the handleSliderInputChange callback function on change to slider value
   sizeSlider.input(handleSliderInputChange);
 
-   // color selector functionality
+  // color selector functionality
   rSlider = createSlider(0, 255, r);
   rSlider.parent(gui);
   rSlider.addClass("slider");
@@ -63,8 +62,6 @@ function setup() {
   bSlider.addClass("slider");
   bSlider.input(handleSliderInputChange);
   
-
-
   //add our gui menu panel button
   button = createButton(">");
   button.addClass("button");
@@ -86,7 +83,7 @@ function setup() {
   colorSwatch.parent(gui);
   colorSwatch.addClass("color-swatch");
 
-    //call this once at start so the color matches our mapping to slider width
+  //call this once at start so the color matches our mapping to slider width
   handleSliderInputChange();
 
 }
@@ -154,7 +151,7 @@ function emitData(){
 function onDrawingEvent(data){
   fill(data.userR,data.userG,data.userB);
   //scale to users window
-  circle(data.xpos * width,data.ypos * height,data.userS);
+  circle(data.xpos * width,data.ypos * height,data.userS * width);
 }
 
 function handleButtonPress()
